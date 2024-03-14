@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+}
+form {
+    margin: 1em 0;
+}
+label, input {
+    display: block;
+    margin: 0.5em 0;
+}
+button {
+    margin: 1em 0;
+}
+#resultado {
+    font-weight: bold;
+}
