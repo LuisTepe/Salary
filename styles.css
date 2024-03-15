@@ -41,7 +41,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; /* Asegúrate de que el div tenga una altura para que los elementos puedan centrarse verticalmente */
+    height: 100%; 
     margin-top: 50px;
 }
 
