@@ -13,10 +13,7 @@ label, input {
 button {
     margin: 1em 0;
 }
-#resultado {
-    
-    font-weight: bold;
-}
+
 #horas, #tarifa
 {
     padding: 10px;
@@ -53,15 +50,14 @@ button {
     border-radius: 10px;
     overflow: hidden;
 }
+#resultado {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
 
 #resultado td {
     padding: 10px;
-}
-
-#resultado tr:first-child td {
-    border-top: none;
-}
-
-#resultado tr:last-child td {
-    border-bottom: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
 }
