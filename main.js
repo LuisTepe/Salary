@@ -12,32 +12,23 @@ const rangosImpuestos = [
     { limiteInferior: 324845.02, limiteSuperior: Infinity, cuotaFija: 101876.9, porcentaje: 0.35 }
 ];
 
-function calcularImpuestos(ganancia) {
+const calcularImpuestos = (ganancia) => {
     const { limiteInferior, cuotaFija, porcentaje } = rangosImpuestos.find(rango => ganancia <= rango.limiteSuperior);
     const base = ganancia - limiteInferior;
     const impuestos = base * porcentaje + cuotaFija;
     return { impuestos: impuestos.toFixed(2), cuotaFija, porcentaje: (porcentaje * 100).toFixed(2) };
-}
+};
 
-document.getElementById('formSalario').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const horas = Number(document.getElementById('horas').value);
-    const tarifa = Number(document.getElementById('tarifa').value);
-
-    let totalPago;
-    totalPago = horas * tarifa;
-    const { impuestos, cuotaFija, porcentaje } = calcularImpuestos(totalPago);
-    totalPago = (totalPago - impuestos).toFixed(2);
-
+const actualizarTabla = ({ salarioBruto, salarioNeto, impuestos, cuotaFija, porcentaje }) => {
     const table = document.getElementById('resultado');
     table.innerHTML = `
         <tr>
             <td>Salario bruto</td>
-            <td>${horas * tarifa}</td>
+            <td>${salarioBruto}</td>
         </tr>
         <tr>
             <td>Salario neto</td>
-            <td>${totalPago}</td>
+            <td>${salarioNeto}</td>
         </tr>
         <tr>
             <td>Impuestos</td>
@@ -52,4 +43,16 @@ document.getElementById('formSalario').addEventListener('submit', function(event
             <td>${porcentaje}%</td>
         </tr>
     `;
+};
+
+document.getElementById('formSalario').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const horas = Number(document.getElementById('horas').value);
+    const tarifa = Number(document.getElementById('tarifa').value);
+
+    const salarioBruto = horas * tarifa;
+    const { impuestos, cuotaFija, porcentaje } = calcularImpuestos(salarioBruto);
+    const salarioNeto = (salarioBruto - impuestos).toFixed(2);
+
+    actualizarTabla({ salarioBruto, salarioNeto, impuestos, cuotaFija, porcentaje });
 });
