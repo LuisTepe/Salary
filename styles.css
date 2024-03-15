@@ -38,3 +38,11 @@ button {
     background-color: #41ac45;
     color: white;
 }
+
+#todo, #resultado, #titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Asegúrate de que el div tenga una altura para que los elementos puedan centrarse verticalmente */
+    margin-top: 50px;
+}
