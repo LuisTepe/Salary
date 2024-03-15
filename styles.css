@@ -1,6 +1,7 @@
 
 body {
     font-family: Arial, sans-serif;
+    background-image: url('src/assets/img/fondo.jpg');
 }
 form {
     margin: 1em 0;
