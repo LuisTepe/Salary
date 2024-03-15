@@ -46,3 +46,22 @@ button {
     height: 100%; /* Asegúrate de que el div tenga una altura para que los elementos puedan centrarse verticalmente */
     margin-top: 50px;
 }
+
+#resultado {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#resultado td {
+    padding: 10px;
+}
+
+#resultado tr:first-child td {
+    border-top: none;
+}
+
+#resultado tr:last-child td {
+    border-bottom: none;
+}

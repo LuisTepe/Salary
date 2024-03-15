@@ -12,11 +12,19 @@
     <input type="number" id="horas" min="0" required>
     <label for="tarifa">Tarifa por hora:</label>
     <input type="number" id="tarifa" min="0" required>
+    <label for="tipoSalario">Tipo de Salario:</label>
+    <select id="tipoSalario" required>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+    </select>
     <button type="submit" id="calcular">Calcular</button>
     </form>
    
     </div>
-    <p id="resultado"></p>
+    <table id="resultado">
+        <!-- Los resultados se insertarán aquí -->
+    </table>
     
     <script src="main.js"></script>
 </body>
