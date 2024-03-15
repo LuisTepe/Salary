@@ -1,19 +1,18 @@
 document.getElementById('formSalario').addEventListener('submit', function(event) {
     event.preventDefault();
-    var horas = document.getElementById('horas').value;
-    var tarifa = document.getElementById('tarifa').value;
-    var totalPago = horas * tarifa;
+    const horas = Number(document.getElementById('horas').value);
+    const tarifa = Number(document.getElementById('tarifa').value);
 
-    if(horas>40){
-        totalHorasExtra = horas-40;
-        totalHoras = horas-totalHorasExtra;
-        totalPago = (totalHoras*tarifa)+(totalHorasExtra*tarifa*1.5);
-        document.getElementById('resultado').textContent = 'El salario es: ' + totalPago;
+    let totalPago;
+    let totalHorasExtra;
+
+    if(horas > 40){
+        totalHorasExtra = horas - 40;
+        const totalHoras = horas - totalHorasExtra;
+        totalPago = (totalHoras * tarifa) + (totalHorasExtra * tarifa * 1.5);
+        document.getElementById('resultado').innerHTML = `El salario es: ${totalPago} <br> Horas extras: ${totalHorasExtra}`;
     } else {
         totalPago = horas * tarifa;
-        document.getElementById('resultado').textContent = 'El salario es: ' + totalPago;
-    }   
-    
+        document.getElementById('resultado').innerHTML = `El salario es: ${totalPago} <br> No hay horas extras.`;
+    }
 });
-
-    
